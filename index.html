@@ -3,59 +3,79 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Segurança Digital para a Terceira Idade</title>
+  <title>Segurança Digital Simples</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <header role="banner">
-    <h1>Guia de Segurança Digital</h1>
-    <p class="subtitulo">Dicas simples para navegar na internet com tranquilidade.</p>
-  </header>
-
-  <nav role="navigation" aria-label="Menu principal">
-    <ul>
-      <li><a href="#senhas">1. Senhas Seguras</a></li>
-      <li><a href="#golpes">2. Cuidado com Golpes</a></li>
-      <li><a href="#mensagens">3. Mensagens Suspeitas</a></li>
-    </ul>
-  </nav>
-
-  <main role="main">
-
-    <section id="senhas" class="card-dica">
-      <h2>1. Como Criar Senhas Seguras</h2>
-      <p>Evite usar datas de nascimento ou nomes de familiares. Crie senhas misturando letras, números e símbolos.</p>
-      <div class="dica-pratica">
-        <strong>Exemplo seguro:</strong> Cafe#ComLeite2026!
+  <section class="barra-acessibilidade" aria-label="Opções de visualização">
+    <div class="container-acessibilidade">
+      <span class="titulo-acessibilidade">⚙️ Ajustes visuais:</span>
+      <div class="grupo-botoes">
+        <label for="zoom-normal" class="btn-opcao">Texto Normal</label>
+        <label for="zoom-grande" class="btn-opcao">Texto Grande (A+)</label>
+        <label for="modo-contraste" class="btn-opcao btn-alto-contraste">Alto Contraste 🔲</label>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="golpes" class="card-dica">
-      <h2>2. Cuidado com Links e Golpes</h2>
-      <p>Bancos e empresas <strong>nunca</strong> pedem sua senha por telefone ou mensagem. Não clique em links enviados por desconhecidos.</p>
-      <div class="alerta">
-        <strong>Lembre-se:</strong> Na dúvida, não clique. Ligue para o seu banco ou peça ajuda a alguém de confiança.
-      </div>
-    </section>
+  <input type="radio" name="tamanho-texto" id="zoom-normal" checked hidden>
+  <input type="radio" name="tamanho-texto" id="zoom-grande" hidden>
+  <input type="checkbox" id="modo-contraste" hidden>
 
-    <section id="mensagens" class="card-dica">
-      <h2>3. Mensagens no WhatsApp</h2>
-      <p>Se alguém conhecido pedir dinheiro pelo aplicativo usando um número novo, ligue para a pessoa para confirmar antes de enviar qualquer valor.</p>
-    </section>
+  <div class="conteudo-principal">
 
-    <section class="secao-ajuda">
-      <h2>Precisa de Ajuda Agora?</h2>
-      <button type="button" class="botao-ajuda" onclick="alert('Se precisar de ajuda, entre em contato com um familiar ou vá até a sua agência bancária.')">
-        Pedir Ajuda a Família
-      </button>
-    </section>
+    <header role="banner">
+      <div class="icone-cabecalho" aria-hidden="true">🛡️</div>
+      <h1>Guia de Segurança Digital</h1>
+      <p class="subtitulo">Aprenda a usar a internet sem medo e de forma segura.</p>
+    </header>
 
-  </main>
+    <nav role="navigation" aria-label="Menu de tópicos">
+      <h2>Escolha o assunto que deseja ler:</h2>
+      <ul>
+        <li><a href="#senhas">🔑 1. Como Criar Senhas</a></li>
+        <li><a href="#golpes">⚠️ 2. Evitar Golpes Frequentes</a></li>
+        <li><a href="#whatsapp">💬 3. Cuidados no WhatsApp</a></li>
+      </ul>
+    </nav>
 
-  <footer role="contentinfo">
-    <p>Projeto focado em Acessibilidade e Segurança para Idosos.</p>
-  </footer>
+    <main role="main">
 
-</body>
-</html>
+      <article id="senhas" class="card-dica">
+        <header class="card-header">
+          <span class="badge">Dica 1</span>
+          <h2>Como Criar Senhas Seguras</h2>
+        </header>
+        <p>Evite usar datas de nascimento, nomes de netos ou sequências como "123456".</p>
+        
+        <div class="caixa-destaque positivo">
+          <h3>💡 O que fazer:</h3>
+          <p>Misture palavras simples com números e símbolos. Exemplo: <strong>Cafe#ComLeite2026</strong></p>
+        </div>
+      </article>
+
+      <article id="golpes" class="card-dica">
+        <header class="card-header">
+          <span class="badge">Dica 2</span>
+          <h2>Atenção com Pedidos de Dinheiro</h2>
+        </header>
+        <p>Bancos e órgãos públicos <strong>nunca pedem sua senha ou dinheiro urgente</strong> por telefone ou mensagem.</p>
+        
+        <div class="caixa-destaque alerta">
+          <h3>🚨 Regra de Ouro:</h3>
+          <p>Na dúvida, desligue a chamada ou feche a mensagem. Não clique em nada!</p>
+        </div>
+      </article>
+
+      <article id="whatsapp" class="card-dica">
+        <header class="card-header">
+          <span class="badge">Dica 3</span>
+          <h2>Mensagens do WhatsApp</h2>
+        </header>
+        <p>Se alguém conheço ou parente pedir dinheiro usando um <strong>número novo</strong>:</p>
+        <ol class="lista-passos">
+          <li>Não envie dinheiro na hora.</li>
+          <li>Ligue para o número antigo do seu parente para confirmar.</li>
+        </ol>
+      </article>
