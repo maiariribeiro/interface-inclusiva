@@ -1,5 +1,23 @@
 /* ==========================================================================
-   1. CONFIGURAÇÕES BASE E RESET
+   1. VARIÁVEIS DE DESIGN (FACILITA MANUTENÇÃO E CORES)
+   ========================================================================== */
+:root {
+  --fonte-principal: Verdana, Geneva, Tahoma, sans-serif;
+  --cor-fundo: #f4f7f6;
+  --cor-card: #ffffff;
+  --cor-texto: #1a1a1a;
+  --cor-primaria: #004080;
+  --cor-primaria-hover: #002b55;
+  --cor-borda: #cccccc;
+  --cor-alerta-fundo: #fff3cd;
+  --cor-alerta-borda: #ffc107;
+  --cor-sucesso-fundo: #e6f4ea;
+  --cor-sucesso-borda: #28a745;
+  --tamanho-base: 20px;
+}
+
+/* ==========================================================================
+   2. ESTILOS BASE E RESET
    ========================================================================== */
 * {
   box-sizing: border-box;
@@ -8,38 +26,37 @@
 }
 
 html {
-  /* Tamanho de fonte base aumentado (Padrão 16px -> Aqui é 20px) */
-  font-size: 20px;
+  font-family: var(--fonte-principal);
+  font-size: var(--tamanho-base);
+  line-height: 1.6;
   scroll-behavior: smooth;
 }
 
 body {
-  font-family: Verdana, Geneva, Tahoma, sans-serif; /* Fonte muito legível em telas */
-  line-height: 1.7;
-  background-color: #f0f4f8;
-  color: #1a1a1a;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
 }
 
-.conteudo-principal {
+.app-container {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
 }
 
 /* ==========================================================================
-   2. BARRA DE ACESSIBILIDADE
+   3. BARRA FIXA DE ACESSIBILIDADE
    ========================================================================== */
 .barra-acessibilidade {
-  background-color: #111827;
-  color: #ffffff;
-  padding: 15px 20px;
   position: sticky;
   top: 0;
-  z-index: 1000;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  z-index: 100;
+  background-color: #111111;
+  color: #ffffff;
+  padding: 12px 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.container-acessibilidade {
+.container-barra {
   max-width: 800px;
   margin: 0 auto;
   display: flex;
@@ -49,222 +66,242 @@ body {
   gap: 10px;
 }
 
-.titulo-acessibilidade {
-  font-weight: bold;
+.titulo-barra {
   font-size: 0.9rem;
+  font-weight: bold;
 }
 
-.grupo-botoes {
+.botoes-acessibilidade {
   display: flex;
-  gap: 10px;
+  gap: 8px;
   flex-wrap: wrap;
 }
 
-.btn-opcao {
-  background-color: #374151;
+.btn-acessivel {
+  background-color: #333333;
   color: #ffffff;
-  padding: 10px 16px;
+  border: 2px solid #555555;
+  padding: 8px 14px;
   border-radius: 8px;
   font-size: 0.85rem;
   font-weight: bold;
   cursor: pointer;
-  border: 2px solid #6b7280;
-  user-select: none;
 }
 
-.btn-opcao:hover, .btn-opcao:focus {
-  background-color: #4b5563;
+.btn-acessivel:hover, .btn-acessivel:focus {
+  background-color: #555555;
   border-color: #ffffff;
 }
 
 /* ==========================================================================
-   3. ESTILOS DO CONTEÚDO (CABEÇALHO, MENU E CARDS)
+   4. ESTRUTURA VISUAL (CABEÇALHO, CARDS E BOTÕES)
    ========================================================================== */
-header {
-  background-color: #004b87;
+.cabecalho {
+  background-color: var(--cor-primaria);
   color: #ffffff;
-  padding: 35px 25px;
-  border-radius: 16px;
   text-align: center;
+  padding: 30px 20px;
+  border-radius: 16px;
   margin-top: 15px;
-  margin-bottom: 30px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-bottom: 25px;
 }
 
 .icone-cabecalho {
-  font-size: 3rem;
-  margin-bottom: 10px;
+  font-size: 2.8rem;
+  margin-bottom: 5px;
 }
 
-header h1 {
+.cabecalho h1 {
   font-size: 1.8rem;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .subtitulo {
   font-size: 1.1rem;
 }
 
-/* Navegação */
-nav {
-  background-color: #ffffff;
-  padding: 25px;
+/* Menu */
+.menu-navegacao {
+  background-color: var(--cor-card);
+  padding: 20px;
   border-radius: 16px;
-  margin-bottom: 30px;
-  border: 2px solid #d1d5db;
+  border: 2px solid var(--cor-borda);
+  margin-bottom: 25px;
 }
 
-nav h2 {
-  font-size: 1.2rem;
-  margin-bottom: 15px;
-  color: #004b87;
+.menu-navegacao h2 {
+  font-size: 1.1rem;
+  color: var(--cor-primaria);
+  margin-bottom: 12px;
 }
 
-nav ul {
+.menu-navegacao ul {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
-nav a {
+.menu-navegacao a {
   display: block;
-  background-color: #eef6ff;
-  color: #004b87;
+  background-color: #f0f4f8;
+  color: var(--cor-primaria);
   text-decoration: none;
   font-weight: bold;
-  padding: 16px 20px;
+  padding: 14px 18px;
+  border: 2px solid var(--cor-primaria);
   border-radius: 10px;
-  border: 2px solid #004b87;
-  font-size: 1.05rem;
 }
 
-nav a:hover, nav a:focus {
-  background-color: #004b87;
+.menu-navegacao a:hover, .menu-navegacao a:focus {
+  background-color: var(--cor-primaria);
   color: #ffffff;
-  outline: 4px solid #f59e0b;
+  outline: 4px solid #ffbf00;
 }
 
 /* Cards de Conteúdo */
-.card-dica {
-  background-color: #ffffff;
-  border: 3px solid #cbd5e1;
+.card {
+  background-color: var(--cor-card);
+  border: 2px solid var(--cor-borda);
   border-radius: 16px;
-  padding: 30px;
-  margin-bottom: 30px;
+  padding: 25px;
+  margin-bottom: 25px;
 }
 
-.card-header {
-  margin-bottom: 15px;
-}
-
-.badge {
-  background-color: #e0f2fe;
-  color: #0369a1;
-  font-size: 0.85rem;
-  font-weight: bold;
-  padding: 6px 12px;
-  border-radius: 20px;
+.tag {
   display: inline-block;
-  margin-bottom: 8px;
+  background-color: #e0f0ff;
+  color: var(--cor-primaria);
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 10px;
 }
 
-.card-dica h2 {
+.card h2 {
   font-size: 1.4rem;
-  color: #0f172a;
+  margin-bottom: 12px;
+  color: #111111;
 }
 
-/* Caixas de Destaque / Alertas */
-.caixa-destaque {
-  padding: 20px;
-  border-radius: 12px;
-  margin-top: 20px;
+/* Caixas de Destaque */
+.caixa-exemplo {
+  padding: 15px 20px;
+  border-radius: 10px;
+  margin-top: 15px;
+  border-left: 6px solid;
 }
 
-.caixa-destaque h3 {
-  font-size: 1.1rem;
-  margin-bottom: 5px;
+.sucesso {
+  background-color: var(--cor-sucesso-fundo);
+  border-color: var(--cor-sucesso-borda);
 }
 
-.positivo {
-  background-color: #ecfdf5;
-  border-left: 8px solid #10b981;
-  color: #064e3b;
+.aviso {
+  background-color: var(--cor-alerta-fundo);
+  border-color: var(--cor-alerta-borda);
 }
 
-.alerta {
-  background-color: #fef2f2;
-  border-left: 8px solid #ef4444;
-  color: #7f1d1d;
+.texto-destaque {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 5px 0;
 }
 
 .lista-passos {
   margin-left: 25px;
-  margin-top: 15px;
+  margin-top: 12px;
 }
 
 .lista-passos li {
   margin-bottom: 10px;
-  font-weight: bold;
 }
 
-/* Seção de Botão de Ação */
+/* Botão de Chamada */
 .secao-ajuda {
   text-align: center;
-  background-color: #ffffff;
-  padding: 30px;
+  background-color: var(--cor-card);
+  border: 3px solid #28a745;
   border-radius: 16px;
-  border: 3px solid #f59e0b;
-  margin-bottom: 40px;
+  padding: 25px;
+  margin-bottom: 30px;
 }
 
 .secao-ajuda h2 {
-  font-size: 1.3rem;
-  margin-bottom: 20px;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
 }
 
-.botao-acao {
-  display: inline-block;
-  background-color: #16a34a;
+.btn-acao {
+  display: block;
+  background-color: #28a745;
   color: #ffffff;
   text-decoration: none;
   font-size: 1.2rem;
   font-weight: bold;
-  padding: 20px 30px;
+  padding: 18px;
   border-radius: 12px;
-  width: 100%;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-.botao-acao:hover, .botao-acao:focus {
-  background-color: #15803d;
-  outline: 4px solid #f59e0b;
+.btn-acao:hover, .btn-acao:focus {
+  background-color: #218838;
+  outline: 4px solid #ffbf00;
 }
 
-footer {
+.rodape {
   text-align: center;
-  font-size: 0.9rem;
-  color: #4b5563;
-  padding: 20px 0;
+  font-size: 0.85rem;
+  color: #666666;
+  padding: 10px 0;
 }
 
 /* ==========================================================================
-   4. FUNCIONALIDADES DE ACESSIBILIDADE VIA CSS (CONTROLES)
+   5. CONTROLES DINÂMICOS DE ACESSIBILIDADE VIA CSS
    ========================================================================== */
 
-/* AUMENTO DE FONTE */
-#zoom-grande:checked ~ .conteudo-principal {
-  font-size: 1.3rem; /* Aumenta a proporção de todo o texto */
+/* 1. Aumento de Texto (A+) */
+#fonte-grande:checked ~ .app-container {
+  font-size: 1.3rem; /* Escala todo o layout */
 }
 
-/* MODO ALTO CONTRASTE */
-#modo-contraste:checked ~ .conteudo-principal {
+/* 2. Modo Alto Contraste Real (Amarelo sobre Preto) */
+#modo-contraste:checked ~ .app-container {
   background-color: #000000 !important;
-  color: #ffff00 !important; /* Texto Amarelo no Preto para Máximo Contraste */
+  color: #ffff00 !important;
 }
 
-#modo-contraste:checked ~ .conteudo-principal header,
-#modo-contraste:checked ~ .conteudo-principal nav,
-#modo-contraste:checked ~ .conteudo-principal .card-dica,
-#modo-contraste:checked ~ .conteudo-principal .secao-ajuda {
-  background-color: #00 }
+#modo-contraste:checked ~ .app-container .cabecalho,
+#modo-contraste:checked ~ .app-container .menu-navegacao,
+#modo-contraste:checked ~ .app-container .card,
+#modo-contraste:checked ~ .app-container .secao-ajuda {
+  background-color: #000000 !important;
+  color: #ffff00 !important;
+  border: 3px solid #ffff00 !important;
+}
+
+#modo-contraste:checked ~ .app-container h1,
+#modo-contraste:checked ~ .app-container h2,
+#modo-contraste:checked ~ .app-container h3,
+#modo-contraste:checked ~ .app-container a,
+#modo-contraste:checked ~ .app-container strong {
+  color: #ffff00 !important;
+}
+
+#modo-contraste:checked ~ .app-container .menu-navegacao a {
+  background-color: #000000 !important;
+  border-color: #ffff00 !important;
+}
+
+#modo-contraste:checked ~ .app-container .caixa-exemplo {
+  background-color: #111111 !important;
+  color: #ffff00 !important;
+  border-left: 8px solid #ffff00 !important;
+}
+
+#modo-contraste:checked ~ .app-container .btn-acao {
+  background-color: #ffff00 !important;
+  color: #000000 !important;
+  border: 2px solid #ffffff !important;
+}
