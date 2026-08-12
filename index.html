@@ -3,79 +3,93 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Segurança Digital Simples</title>
+  <title>Guia de Segurança Digital - Terceira Idade</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <section class="barra-acessibilidade" aria-label="Opções de visualização">
-    <div class="container-acessibilidade">
-      <span class="titulo-acessibilidade">⚙️ Ajustes visuais:</span>
-      <div class="grupo-botoes">
-        <label for="zoom-normal" class="btn-opcao">Texto Normal</label>
-        <label for="zoom-grande" class="btn-opcao">Texto Grande (A+)</label>
-        <label for="modo-contraste" class="btn-opcao btn-alto-contraste">Alto Contraste 🔲</label>
-      </div>
-    </div>
-  </section>
-
-  <input type="radio" name="tamanho-texto" id="zoom-normal" checked hidden>
-  <input type="radio" name="tamanho-texto" id="zoom-grande" hidden>
+  <input type="radio" name="fonte-tamanho" id="fonte-media" checked hidden>
+  <input type="radio" name="fonte-tamanho" id="fonte-grande" hidden>
   <input type="checkbox" id="modo-contraste" hidden>
 
-  <div class="conteudo-principal">
+  <aside class="barra-acessibilidade" aria-label="Controled de Acessibilidade">
+    <div class="container-barra">
+      <span class="titulo-barra">🛠️ Opções de Leitura:</span>
+      <div class="botoes-acessibilidade">
+        <label for="fonte-media" class="btn-acessivel">Texto Normal</label>
+        <label for="fonte-grande" class="btn-acessivel">Texto Grande (A+)</label>
+        <label for="modo-contraste" class="btn-acessivel btn-contraste">Alto Contraste 👁️</label>
+      </div>
+    </div>
+  </aside>
 
-    <header role="banner">
+  <div class="app-container">
+
+    <header class="cabecalho">
       <div class="icone-cabecalho" aria-hidden="true">🛡️</div>
-      <h1>Guia de Segurança Digital</h1>
-      <p class="subtitulo">Aprenda a usar a internet sem medo e de forma segura.</p>
+      <h1>Segurança Digital</h1>
+      <p class="subtitulo">Dicas simples para navegar na internet com tranquilidade</p>
     </header>
 
-    <nav role="navigation" aria-label="Menu de tópicos">
-      <h2>Escolha o assunto que deseja ler:</h2>
+    <nav class="menu-navegacao" aria-label="Navegação rápida">
+      <h2>Escolha o assunto:</h2>
       <ul>
-        <li><a href="#senhas">🔑 1. Como Criar Senhas</a></li>
-        <li><a href="#golpes">⚠️ 2. Evitar Golpes Frequentes</a></li>
+        <li><a href="#senhas">🔑 1. Como Criar Senhas Seguras</a></li>
+        <li><a href="#golpes">⚠️ 2. Evitar Golpes e Links</a></li>
         <li><a href="#whatsapp">💬 3. Cuidados no WhatsApp</a></li>
       </ul>
     </nav>
 
-    <main role="main">
+    <main class="conteudo">
 
-      <article id="senhas" class="card-dica">
-        <header class="card-header">
-          <span class="badge">Dica 1</span>
-          <h2>Como Criar Senhas Seguras</h2>
-        </header>
-        <p>Evite usar datas de nascimento, nomes de netos ou sequências como "123456".</p>
+      <section id="senhas" class="card">
+        <span class="tag">Passo 1</span>
+        <h2>Como Criar Senhas Seguras</h2>
+        <p>Não use datas de nascimento ou nomes de familiares. Elas são fáceis de adivinhar.</p>
         
-        <div class="caixa-destaque positivo">
-          <h3>💡 O que fazer:</h3>
-          <p>Misture palavras simples com números e símbolos. Exemplo: <strong>Cafe#ComLeite2026</strong></p>
+        <div class="caixa-exemplo sucesso">
+          <h3>✅ Exemplo de Senha Forte:</h3>
+          <p class="texto-destaque">Cafe#ComLeite2026</p>
+          <small>Misture letras maiúsculas, minúsculas, números e símbolos (#, !).</small>
         </div>
-      </article>
+      </section>
 
-      <article id="golpes" class="card-dica">
-        <header class="card-header">
-          <span class="badge">Dica 2</span>
-          <h2>Atenção com Pedidos de Dinheiro</h2>
-        </header>
-        <p>Bancos e órgãos públicos <strong>nunca pedem sua senha ou dinheiro urgente</strong> por telefone ou mensagem.</p>
-        
-        <div class="caixa-destaque alerta">
-          <h3>🚨 Regra de Ouro:</h3>
-          <p>Na dúvida, desligue a chamada ou feche a mensagem. Não clique em nada!</p>
+      <section id="golpes" class="card">
+        <span class="tag tag-alerta">Passo 2</span>
+        <h2>Atenção com Mensagens e Ligações</h2>
+        <p>Bancos e empresas <strong>nunca pedem senhas ou transferências urgentes</strong> pelo celular.</p>
+
+        <div class="caixa-exemplo aviso">
+          <h3>🚨 O que fazer se suspeitar?</h3>
+          <p>Desligue o telefone ou feche o aplicativo imediatamente. Não clique em nenhum link enviado.</p>
         </div>
-      </article>
+      </section>
 
-      <article id="whatsapp" class="card-dica">
-        <header class="card-header">
-          <span class="badge">Dica 3</span>
-          <h2>Mensagens do WhatsApp</h2>
-        </header>
-        <p>Se alguém conheço ou parente pedir dinheiro usando um <strong>número novo</strong>:</p>
+      <section id="whatsapp" class="card">
+        <span class="tag">Passo 3</span>
+        <h2>Pedidos de Dinheiro no WhatsApp</h2>
+        <p>Se um parente enviar mensagem de um <strong>número novo</strong> pedindo dinheiro Pix urgente:</p>
+
         <ol class="lista-passos">
-          <li>Não envie dinheiro na hora.</li>
-          <li>Ligue para o número antigo do seu parente para confirmar.</li>
+          <li><strong>Parar:</strong> Não faça a transferência na hora.</li>
+          <li><strong>Confirmar:</strong> Ligue para o número antigo do seu parente.</li>
         </ol>
-      </article>
+      </section>
+
+      <section class="secao-ajuda">
+        <h2>Ficou com alguma dúvida?</h2>
+        <a href="tel:190" class="btn-acao">
+          📞 Pedir Ajuda a um Familiar
+        </a>
+      </section>
+
+    </main>
+
+    <footer class="rodape">
+      <p>Desenvolvido para facilitar o uso da internet por idosos.</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>
